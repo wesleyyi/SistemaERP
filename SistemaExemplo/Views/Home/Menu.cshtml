@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h2>Lista de  empresas</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id_Empresa</th>
+            <th>Nome_Empresa</th>
+            <th>CNPJ</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<MenuModel>)ViewBag.ListaMenu)
+        {
+            <tr>
+                <td>@item.IdEmpresa</td>
+                <td>@item.NomeEmpresa</td>
+                <td>@item.Cnpj</td>
+                <td><button type="button" class="btn btn-warning" onclick="Editar(@item.IdEmpresa)">Editar</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    function Editar(Id) {
+        window.location.href = "Cadastro/" + Id;
+    }
+</script>

@@ -1,0 +1,22 @@
+﻿@model MenuModel
+
+<h2>Atualizar Empresa</h2>
+
+<br />
+
+<form asp-controller="Home" asp-action="Cadastro">
+    <input type="hidden" asp-for="IdEmpresa" value="@try { @ViewBag.Empresa.IdEmpresa } catch { } " />
+
+    <div class="form-group">
+        <label>Nome da Empresa</label>
+        <input asp-for="NomeEmpresa" type="text" class="form-control" value="@try { @ViewBag.Empresa.NomeEmpresa} catch { }" />
+        <span asp-validation-for="NomeEmpresa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>CNPJ</label>
+        <input asp-for="Cnpj" type="text" class="form-control" value="@try { @ViewBag.Empresa.Cnpj} catch { }" />
+        <span asp-validation-for="Cnpj" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-block btn-success" >Atualizar</button>
+</form>
